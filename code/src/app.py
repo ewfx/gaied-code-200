@@ -1,4 +1,7 @@
 import gradio as gr
+import sys
+
+sys.path.append("./parsing")
 from parsing import classify_files
 
 from style import css

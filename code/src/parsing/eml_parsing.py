@@ -2,6 +2,7 @@ import requests
 import hashlib
 import email
 import os
+import re
 import pymupdf as fitz
 import pytesseract
 import docx
@@ -13,6 +14,7 @@ from bs4 import BeautifulSoup
 
 from image_parsing import extract_text_from_image
 from pdf_parsing import extract_text_from_pdf
+from model import llama3
 
 import parsing
 
@@ -72,6 +74,12 @@ def eml_parsing(file_path, save_dir="./email_attachments"):
 
     attachments=all_extracted_text
 
-    parsing.db_push(file_ext, sender, subject, date, body, attachments)
+    is_duplicate, existing_response = parsing.check_duplicate(body)
+    if(is_duplicate):
+        return [sender, subject, is_duplicate, existing_response]
+
     
-    return f"Processed EML: {file_path}"
+    response = llama3(body)
+    parsing.db_push(file_ext, sender, subject, date, body, attachments, response)
+    
+    return [sender, subject, is_duplicate, response]

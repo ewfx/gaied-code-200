@@ -29,7 +29,7 @@ nltk.download('stopwords', download_dir=NLTK_DATA_DIR)
 pytesseract.pytesseract.tesseract_cmd = "/opt/homebrew/bin/tesseract"
 
 # Connect to PostgreSQL (modify with your DB details)
-conn = psycopg2.connect("###DB DETAILS###")
+conn = psycopg2.connect("dbname=postgres user=postgres password=gaied_code_200 host=db.agqiihvhsqxlwddpqlpp.supabase.co")
 cursor = conn.cursor()
 
 # Create table if not exists
@@ -42,7 +42,8 @@ CREATE TABLE IF NOT EXISTS file_data (
     subject TEXT,
     date TEXT,
     body TEXT,
-    attachments TEXT
+    attachments TEXT,
+    response TEXT
 );
 """)
 conn.commit()
@@ -57,12 +58,20 @@ def clean_body(text):
 def generate_hash(content):
     return hashlib.sha256(content.encode()).hexdigest()
 
-def db_push(file_type, sender, subject, date, body, attachments):
+def check_duplicate(body):
+    body_hash = generate_hash(body)
+    cursor.execute("SELECT response FROM file_data WHERE hash = %s", (body_hash,))
+    result = cursor.fetchone()
+    if result:
+        return True, result[0]  # Duplicate found, return response
+    return False, None  # Not a duplicate
+
+def db_push(file_type, sender, subject, date, body, attachments, response):
     unique_hash = generate_hash(f"{body}")
 
     # Store in DB
-    cursor.execute("INSERT INTO file_data (file_type, hash, sender, subject, date, body, attachments) VALUES (%s, %s, %s, %s, %s, %s, %s) ON CONFLICT (hash) DO NOTHING", 
-                   (file_type, unique_hash, sender, subject, date, body, "\n".join(attachments)))
+    cursor.execute("INSERT INTO file_data (file_type, hash, sender, subject, date, body, attachments, response) VALUES (%s, %s, %s, %s, %s, %s, %s, %s) ON CONFLICT (hash) DO NOTHING", 
+                   (file_type, unique_hash, sender, subject, date, body, "\n".join(attachments), response))
     conn.commit()
 
 def classify_files(files):
@@ -84,4 +93,4 @@ def classify_files(files):
             continue
         results.append(result)
     
-    return "\n".join(results)
+    return results

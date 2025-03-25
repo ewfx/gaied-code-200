@@ -71,7 +71,7 @@ def db_push(file_type, sender, subject, date, body, attachments, response):
 
     # Store in DB
     cursor.execute("INSERT INTO file_data (file_type, hash, sender, subject, date, body, attachments, response) VALUES (%s, %s, %s, %s, %s, %s, %s, %s) ON CONFLICT (hash) DO NOTHING", 
-                   (file_type, unique_hash, sender, subject, date, body, "\n".join(attachments), response))
+                   (file_type, unique_hash, sender, subject, date, body, attachments, response))
     conn.commit()
 
 def classify_files(files):

@@ -1,0 +1,48 @@
+{
+    "rules_and_key_attributes": {
+      "adjustment": {
+        "key_attributes": ["Modify (+3)", "Adjust (+3)", "Correction (+2)", "Rectify (+2)", "Fix (+1)"]
+      },
+      "au_transfer": {
+        "key_attributes": ["Account unit transfer (+3)", "AU transfer (+3)", "Transfer between accounts (+2)", "Internal transfer (+2)", "Move funds internally (+1)"]
+      },
+      "closing_notice": {
+        "key_attributes": ["Loan closure (+3)", "Closing (+3)", "Settlement (+2)", "Finalization (+2)", "End of loan (+1)"],
+        "sub_request_types": {
+          "reallocation_fees": ["Reallocate fees (+3)", "Fee adjustment (+3)", "Redistribute fees (+2)", "Closing fee reallocation (+2)", "Fee correction (+1)"],
+          "amendment_fees": ["Amendment fee (+3)", "Change fee (+3)", "Adjustment fee (+2)", "Modify fee (+2)", "Fee revision (+1)"],
+          "reallocation_principal": ["Reallocate principal (+3)", "Principal adjustment (+3)", "Redistribute principal (+2)", "Closing principal reallocation (+1)"]
+        }
+      },
+      "commitment_change": {
+        "key_attributes": ["Modify commitment (+3)", "Change loan terms (+3)", "Adjust facility (+2)", "Commitment revision (+2)", "Loan restructuring (+1)"],
+        "sub_request_types": {
+          "cashless_roll": ["Cashless roll (+3)", "Rollover without cash (+3)", "Commitment roll (+2)", "Loan rollover (+2)", "Non-cash rollover (+1)"],
+          "decrease": ["Reduce commitment (+3)", "Lower commitment (+3)", "Decrease facility (+2)", "Commitment reduction (+2)", "Loan decrease (+1)"],
+          "increase": ["Increase commitment (+3)", "Raise facility (+3)", "Higher commitment (+2)", "Commitment expansion (+2)", "Loan increase (+1)"]
+        }
+      },
+      "fee_payment": {
+        "key_attributes": ["Fee payment (+3)", "Charges (+3)", "Recurring fees (+2)", "One-time fees (+2)", "Payment of dues (+1)"],
+        "sub_request_types": {
+          "ongoing_fee": ["Ongoing fee (+3)", "Recurring fee (+3)", "Regular payment (+2)", "Periodic charges (+2)", "Continuous fee (+1)"],
+          "letter_of_credit_fee": ["Letter of credit fee (+3)", "Credit letter payment (+2)", "Guarantee fee (+2)", "Bank letter charges (+1)"]
+        }
+      },
+      "money_movement_inbound": {
+        "key_attributes": ["Incoming payment (+3)", "Inbound transaction (+3)", "Funds received (+2)", "Payment credited (+2)", "Deposit (+1)"],
+        "sub_request_types": {
+          "principal": ["Principal payment received (+3)", "Inbound principal (+3)"],
+          "interest": ["Interest payment received (+3)", "Inbound interest (+3)"],
+          "principal_interest": ["Combined payment (+3)", "Principal and interest received (+3)"]
+        }
+      },
+      "money_movement_outbound": {
+        "key_attributes": ["Outgoing payment (+3)", "Outbound transaction (+3)", "Funds sent (+2)", "Payment debited (+2)", "Withdrawal (+1)"],
+        "sub_request_types": {
+          "timebound": ["Scheduled payment (+3)", "Payment deadline (+2)", "Fixed-time payment (+2)"],
+          "foreign_currency": ["Foreign currency payment (+3)", "FX payment (+3)", "Outbound foreign currency (+2)", "International transfer (+2)"]
+        }
+      }
+    }
+  }

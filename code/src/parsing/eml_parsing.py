@@ -44,14 +44,14 @@ def eml_parsing(file_path, save_dir="./email_attachments"):
     
     body = body.strip() if body else "[No Text Content]"  # Handle empty body
     
-    body = parsing.clean_body(body)
+    # body = parsing.clean_body(body)
     
     # Extract attachments
     all_extracted_text = ""  # Variable to store all extracted text
 
     for part in msg.iter_attachments():
         filename = part.get_filename()
-        
+        print(filename)
         if filename:
             # Sanitize filename
             filename = re.sub(r'[\/:*?"<>|]', '_', filename)
@@ -67,18 +67,17 @@ def eml_parsing(file_path, save_dir="./email_attachments"):
                 extracted_text = extract_text_from_pdf(file_path)
             elif filename.lower().endswith((".png", ".jpg", ".jpeg")):
                 extracted_text = extract_text_from_image(file_path)
-
             # Concatenate if text is found
             if extracted_text:
                 all_extracted_text += extracted_text + "\n"
 
     attachments=all_extracted_text
+    attachments=parsing.clean_body(attachments)
 
     is_duplicate, existing_response = parsing.check_duplicate(body)
     if(is_duplicate):
         return [sender, subject, is_duplicate, existing_response]
 
-    
     response = llama3(body)
     parsing.db_push(file_ext, sender, subject, date, body, attachments, response)
     

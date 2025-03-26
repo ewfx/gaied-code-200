@@ -7,6 +7,7 @@ import pymupdf as fitz
 import pytesseract
 import docx
 import psycopg2
+import json
 from email import policy
 from email.parser import BytesParser
 from PIL import Image
@@ -80,7 +81,10 @@ def eml_parsing(file_path, save_dir="./email_attachments"):
     if(is_duplicate):
         return [sender, subject, is_duplicate, existing_response]
 
-    response = llama3(body)
+    response = llama3(body,attachments)
+    if isinstance(response, dict):  
+        response = json.dumps(response, indent=4, ensure_ascii=False)
+    print(response, type(response))
     parsing.db_push(file_ext, sender, subject, date, body, attachments, response)
     
     return [sender, subject, is_duplicate, response]

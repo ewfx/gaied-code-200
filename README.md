@@ -103,7 +103,6 @@ The primary motivation is to eliminate manual gatekeeping and automate the triag
 - 🔹 **Backend:** Python with NLTK and Ollama API
 - 🔹 **Database:** Supabase PostgreSQL
 - 🔹 **Model:** Llama 3 via Ollama API
-- 🔹 **Deployment:** Docker, Gradio UI
 - 🔹 **Tools and Libraries:** LangChain, Pandas, Scikit-learn, PDF parsing libraries
 
 ## 👥 Team
@@ -112,5 +111,3 @@ The primary motivation is to eliminate manual gatekeeping and automate the triag
 - **DuraiRaj** - [GitHub](https://github.com/ewfx)  
 - **Karthikeyan** - [GitHub](https://github.com/ewfx)
 
-## 📝 License
-This project is licensed under the MIT License. See the LICENSE file for details.

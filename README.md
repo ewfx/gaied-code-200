@@ -139,7 +139,7 @@ The primary motivation is to eliminate manual gatekeeping and automate the triag
 
 The following diagram illustrates the overall architecture of the system, showcasing the flow of data from input to output, including model integration and UI components:
 
-![Architecture Diagram](./artifacts/arch/arch-diagram.svg)
+![Architecture Diagram](./artifacts/arch/diagram.png)
 
 ## 🏗️ Tech Stack
 - 🔹 **Frontend:** Gradio

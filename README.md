@@ -38,8 +38,8 @@ The solution must:
 5. **Duplicate Email Detection:** Identify duplicate email threads to minimize redundancy.
 
 ## 🎥 Demo
-🔗 [Live Demo](#) (if applicable)  
-📹 [Video Demo](#) (if applicable)  
+
+📹 [Video Demo](https://github.com/ewfx/gaied-code-200/blob/main/artifacts/demo/DEMO.mp4) 
 
 ## 💡 Inspiration
 The primary motivation is to eliminate manual gatekeeping and automate the triage process for high volumes of email requests. Reducing the time and effort spent on manual classification can significantly improve operational efficiency and minimize human errors.

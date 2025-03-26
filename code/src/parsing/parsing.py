@@ -81,12 +81,6 @@ def classify_files(files):
         file_ext = os.path.splitext(file.name)[1].lower()
         if file_ext == ".eml":
             result = eml_parsing(file.name, save_dir="./email_attachments")
-        elif file_ext == ".pdf":
-            print("") 
-        elif file_ext in [".png", ".jpg", ".jpeg"]:
-            print("")
-        elif file_ext in [".doc", ".docxu"]:
-            print("")
         else:
             result = f"Unsupported file format: {file.name}"
             results.append(result)

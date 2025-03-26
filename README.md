@@ -104,7 +104,7 @@ The primary motivation is to eliminate manual gatekeeping and automate the triag
 
 ## 👥 Team
 - **Fahadh** - [GitHub](https://github.com/Fahadh4444) | [Linkedin](https://www.linkedin.com/in/fahadh-kasala-453933296/)
-- **Thirumagal Dhivya** - [GitHub]() | [Linkedin]()
+- **Thirumagal Dhivya** - [GitHub](https://github.com/dhivya6613) | [Linkedin](https://www.linkedin.com/in/thirumagaldhivya/)
 - **DuraiRaj** - [GitHub]() | [Linkedin]()
 - **Karthikeyan** - [GitHub]() | [Linkedin]()
 

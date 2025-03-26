@@ -67,13 +67,15 @@ def eml_parsing(file_path, save_dir="./email_attachments"):
                 extracted_text = extract_text_from_pdf(file_path)
             elif filename.lower().endswith((".png", ".jpg", ".jpeg")):
                 extracted_text = extract_text_from_image(file_path)
+            elif file.lower().endwith((".docx")):
+                extract_text_from_docx(file_path)
             # Concatenate if text is found
             if extracted_text:
                 all_extracted_text += extracted_text + "\n"
 
     attachments=all_extracted_text
-    attachments=parsing.clean_body(attachments)
-
+    # attachments=parsing.clean_body(attachments)
+    print(attachments)
     is_duplicate, existing_response = parsing.check_duplicate(body)
     if(is_duplicate):
         return [sender, subject, is_duplicate, existing_response]

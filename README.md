@@ -95,6 +95,41 @@ The primary motivation is to eliminate manual gatekeeping and automate the triag
    python3 code/src/app.py
    ```
 
+
+   
+## 🏗️ Response Structure
+   ```bash
+{
+  "primary_classification": {
+    "request_type": "closing_notice",
+    "sub_request_type": "amendment_fees",
+    "confidence": "0.92",
+    "matched_attributes": [
+      "Loan closure (+3)",
+      "Closing (+3)"
+    ],
+    "extracted_sentences": [
+      "Effective 04-Feb-2025, the Lender Shares of facility TERM LOAN A-2 have been adjusted"
+    ]
+  },
+  "other_classifications": [
+    {
+      "request_type": "closing_notice",
+      "sub_request_type": "reallocation_fees",
+      "confidence": "0.81",
+      "matched_attributes": [
+        "Loan closure (+3)",
+        "Closing (+3)"
+      ],
+      "extracted_sentences": [
+        "For: ABC BANK, NA"
+      ]
+    }
+  ]
+}
+   ```
+
+
 ## 🏗️ Tech Stack
 - 🔹 **Frontend:** Gradio
 - 🔹 **Backend:** Python with NLTK and Ollama API

@@ -1,4 +1,4 @@
-# Updated Architecture Diagram
+#Architecture Diagram
 
 ## Overview
 This document provides an overview of the system architecture. The architecture diagram showcases the flow of data and interactions between different components of the system, highlighting the processing pipeline from user input to final output.

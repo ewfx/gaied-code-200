@@ -79,23 +79,20 @@ The primary motivation is to eliminate manual gatekeeping and automate the triag
    ```
 2. Navigate to the project directory
    ```bash
-   cd project-root
+   cd gaied-code-200
    ```
 3. Install dependencies
    ```bash
    pip install -r requirements.txt
    ```
-4. Pull the Llama 3 model using Ollama
+4. Pull the Llama 3 model using Ollama(Pre-requisites: Install Ollama)
    ```bash
    ollama pull llama3
    ```
-5. Run database migrations
+5. Add Database credentials(conn = psycopg2.connect("###DB Credentials###") in parsing.py)
+6. Start the Gradio UI(Before starting UI make sure you change "pytesseract.pytesseract.tesseract_cmd = "#PATH TO TESSERACT###"" in parsing.py)
    ```bash
-   python code/src/db/migrate.py
-   ```
-6. Start the Gradio UI
-   ```bash
-   python code/src/app.py
+   python3 code/src/app.py
    ```
 
 ## 🏗️ Tech Stack
@@ -106,8 +103,8 @@ The primary motivation is to eliminate manual gatekeeping and automate the triag
 - 🔹 **Tools and Libraries:** LangChain, Pandas, Scikit-learn, PDF parsing libraries
 
 ## 👥 Team
-- **Fahadh** - [GitHub](https://github.com/ewfx)  
-- **Thirumagal Dhivya** - [GitHub](https://github.com/ewfx)  
-- **DuraiRaj** - [GitHub](https://github.com/ewfx)  
-- **Karthikeyan** - [GitHub](https://github.com/ewfx)
+- **Fahadh** - [GitHub](https://github.com/Fahadh4444) | [Linkedin](https://www.linkedin.com/in/fahadh-kasala-453933296/)
+- **Thirumagal Dhivya** - [GitHub]() | [Linkedin]()
+- **DuraiRaj** - [GitHub]() | [Linkedin]()
+- **Karthikeyan** - [GitHub]() | [Linkedin]()
 

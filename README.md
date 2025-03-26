@@ -40,9 +40,6 @@ The solution must:
 ## 🎥 Demo
 🔗 [Live Demo](#) (if applicable)  
 📹 [Video Demo](#) (if applicable)  
-🖼️ Screenshots:
-
-![Screenshot 1](link-to-image)
 
 ## 💡 Inspiration
 The primary motivation is to eliminate manual gatekeeping and automate the triage process for high volumes of email requests. Reducing the time and effort spent on manual classification can significantly improve operational efficiency and minimize human errors.

@@ -85,7 +85,14 @@ The primary motivation is to eliminate manual gatekeeping and automate the triag
    ```bash
    pip install -r requirements.txt
    ```
-4. Pull the Llama 3 model using Ollama(Pre-requisites: Install Ollama)
+4. Download and Install Ollama
+   Visit the following link to download Ollama for Mac:
+   [Ollama Download for Mac](https://ollama.com/download/mac)
+
+   Once downloaded and installed, start the Llama 3.2 model using the following command:
+   ```bash
+   ollama run llama3.2
+   ```
    ```bash
    ollama pull llama3
    ```

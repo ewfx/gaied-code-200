@@ -1,7 +1,9 @@
-# 🚀 Project Name
+# 🚀 Gen AI-Based Email Classification and OCR
 
 ## 📌 Table of Contents
 - [Introduction](#introduction)
+- [Problem Statement](#problem-statement)
+- [Challenge Overview](#challenge-overview)
 - [Demo](#demo)
 - [Inspiration](#inspiration)
 - [What It Does](#what-it-does)
@@ -14,7 +16,26 @@
 ---
 
 ## 🎯 Introduction
-A brief overview of your project and its purpose. Mention which problem statement are your attempting to solve. Keep it concise and engaging.
+This project is a Gen AI-powered email classification and OCR application designed to automate the manual triage process in commercial banking services. It leverages Generative AI models (LLMs) such as **Llama 3** from **Ollama** for text understanding and classification. The project is built to handle large volumes of service requests arriving via email, including attachments. The solution automates the classification of emails and sub-requests, extracts relevant fields, and routes the data to appropriate channels.
+
+## 📝 Problem Statement
+Commercial bank lending service teams receive a significant volume of servicing requests through emails. These emails often contain diverse requests, including attachments, and must be processed to populate service requests that will go through workflow processing.
+
+Manual triage requires human intervention to:
+- Read and interpret the email content and attachments.
+- Identify the intent and classify the "Request Type" and "Sub Request Type".
+- Extract key attributes for service requests.
+- Assign requests to the appropriate team or individual based on roles and skills.
+
+The challenge is to develop an AI-powered solution to automate email classification and data extraction using Generative AI, thereby improving efficiency, accuracy, and turnaround time.
+
+## 🗺️ Challenge Overview
+The solution must:
+1. **Accurately extract, interpret, and categorize emails into predefined request types and sub-request types.**
+2. **Context-based data extraction:** Identify and extract essential fields like deal name, amount, and expiration date from both email bodies and attachments.
+3. **Handle multi-request emails:** Ensure that complex emails with multiple requests are correctly classified.
+4. **Priority-based Extraction:** Implement customizable extraction rules to prioritize emails over documents for request type identification.
+5. **Duplicate Email Detection:** Identify duplicate email threads to minimize redundancy.
 
 ## 🎥 Demo
 🔗 [Live Demo](#) (if applicable)  
@@ -24,37 +45,72 @@ A brief overview of your project and its purpose. Mention which problem statemen
 ![Screenshot 1](link-to-image)
 
 ## 💡 Inspiration
-What inspired you to create this project? Describe the problem you're solving.
+The primary motivation is to eliminate manual gatekeeping and automate the triage process for high volumes of email requests. Reducing the time and effort spent on manual classification can significantly improve operational efficiency and minimize human errors.
 
 ## ⚙️ What It Does
-Explain the key features and functionalities of your project.
+- **Email Classification:** Automates the classification of emails based on request and sub-request types.
+- **Text Parsing:** Extracts data from PDFs, DOC files, and email bodies.
+- **OCR Integration:** Recognizes text within images and PDF documents.
+- **Language Model Integration:** Uses Llama 3 via Ollama for advanced text analysis and classification.
+- **Gradio UI:** Provides a user-friendly web interface for running the model and reviewing results.
+- **Database Integration:** Stores and retrieves parsed data efficiently.
+- **Duplicate Email Detection:** Avoids redundant processing of repeated emails.
+- **Priority-based Extraction:** Ensures important requests are processed first.
 
 ## 🛠️ How We Built It
-Briefly outline the technologies, frameworks, and tools used in development.
+- **Backend:** Python with NLTK and Ollama API for Llama 3 integration.
+- **Frontend:** Gradio for interactive UI.
+- **Database:** Supabase PostgreSQL.
+- **Deployment:** Dockerized for consistent environment setup.
+- **Model:** Llama 3 model integration via Ollama API.
+- **Parsing:** Custom parsers for PDF, DOC, and email files.
 
 ## 🚧 Challenges We Faced
-Describe the major technical or non-technical challenges your team encountered.
+- Integrating the Llama 3 model with existing processing pipelines.
+- Efficient handling of large and multi-attachment emails.
+- Designing a scalable system to manage high email volumes.
+- Implementing robust duplicate email detection mechanisms.
+- Ensuring accuracy in multi-request and context-based classification.
 
 ## 🏃 How to Run
-1. Clone the repository  
-   ```sh
-   git clone https://github.com/your-repo.git
+1. Clone the repository
+   ```bash
+   git clone https://github.com/ewfx/gaied-code-200
    ```
-2. Install dependencies  
-   ```sh
-   npm install  # or pip install -r requirements.txt (for Python)
+2. Navigate to the project directory
+   ```bash
+   cd project-root
    ```
-3. Run the project  
-   ```sh
-   npm start  # or python app.py
+3. Install dependencies
+   ```bash
+   pip install -r requirements.txt
+   ```
+4. Pull the Llama 3 model using Ollama
+   ```bash
+   ollama pull llama3
+   ```
+5. Run database migrations
+   ```bash
+   python code/src/db/migrate.py
+   ```
+6. Start the Gradio UI
+   ```bash
+   python code/src/app.py
    ```
 
 ## 🏗️ Tech Stack
-- 🔹 Frontend: React / Vue / Angular
-- 🔹 Backend: Node.js / FastAPI / Django
-- 🔹 Database: PostgreSQL / Firebase
-- 🔹 Other: OpenAI API / Twilio / Stripe
+- 🔹 **Frontend:** Gradio
+- 🔹 **Backend:** Python with NLTK and Ollama API
+- 🔹 **Database:** Supabase PostgreSQL
+- 🔹 **Model:** Llama 3 via Ollama API
+- 🔹 **Deployment:** Docker, Gradio UI
+- 🔹 **Tools and Libraries:** LangChain, Pandas, Scikit-learn, PDF parsing libraries
 
 ## 👥 Team
-- **Your Name** - [GitHub](#) | [LinkedIn](#)
-- **Teammate 2** - [GitHub](#) | [LinkedIn](#)
+- **Fahadh** - [GitHub](https://github.com/ewfx)  
+- **Thirumagal Dhivya** - [GitHub](https://github.com/ewfx)  
+- **DuraiRaj** - [GitHub](https://github.com/ewfx)  
+- **Karthikeyan** - [GitHub](https://github.com/ewfx)
+
+## 📝 License
+This project is licensed under the MIT License. See the LICENSE file for details.
